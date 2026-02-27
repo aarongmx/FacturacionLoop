@@ -1,6 +1,7 @@
 # Phase 1: Catálogos SAT Base - Context
 
 **Gathered:** 2026-02-27
+**Updated:** 2026-02-27
 **Status:** Ready for planning
 
 <domain>
@@ -13,16 +14,21 @@ Seed all 12 missing SAT catalog tables (c_RegimenFiscal, c_UsoCFDI, c_FormaPago,
 <decisions>
 ## Implementation Decisions
 
+### XLS-to-CSV Conversion
+- Install `phpoffice/phpspreadsheet` as a dev dependency
+- Create an Artisan command (`php artisan sat:export-csv`) that reads `database/data/catCFDI_V_4_20260212.xls` and exports all 12 sheets to CSV automatically
+- Single command exports all sheets at once — no per-sheet selection needed
+- Normalize booleans during export: 'Sí' → true, anything else → false — seeders read clean values
+- Normalize dates during export to 'Y-m-d' format — seeders don't need to parse SAT date quirks
+
 ### Data Sourcing
-- Load catalog data from official SAT CSV files
-- CSVs stored in `database/data/` directory, versioned in git
-- User provides the CSV files downloaded from the SAT portal — system does not auto-download
-- Seeders read from CSV files using Laravel's filesystem or PHP's fgetcsv
+- Exported CSVs are committed to git in `database/data/` — ready-to-seed snapshot
+- The XLS file remains the canonical source of truth
+- Seeders read from CSV files using PHP's fgetcsv
 
 ### Catalog Updates
-- When SAT publishes updated catalogs, use incremental migration strategy
-- Detect differences between old CSV and new CSV, apply only changes (inserts, updates, soft-deletes)
-- Do not truncate and re-seed — existing records may be referenced by invoices
+- When SAT publishes updated catalogs, replace XLS, re-run `php artisan sat:export-csv`, commit new CSVs
+- Seeders use `upsert()` — never `truncate()`. Existing records may be referenced by invoices
 
 ### Claude's Discretion
 - Filament resource configuration for each catalog (read-only vs editable, columns displayed, search behavior)
@@ -30,13 +36,16 @@ Seed all 12 missing SAT catalog tables (c_RegimenFiscal, c_UsoCFDI, c_FormaPago,
 - Handling large catalogs in Filament (c_ClaveProdServ ~53K rows, c_ClaveUnidad ~2K rows) — search/autocomplete strategy
 - Migration and seeder naming conventions following existing project patterns
 - Table naming conventions (follow existing catalog models like Currency, Country, etc.)
+- Date format detection and edge case handling in the export command
+- CSV encoding (UTF-8 output regardless of XLS source encoding)
 
 </decisions>
 
 <specifics>
 ## Specific Ideas
 
-No specific requirements — open to standard approaches. Follow existing catalog model patterns already in the project (Currency, Country, CustomUnit, TariffClassification, State, Incoterm).
+- Follow existing catalog model patterns in the project (Currency, Country, CustomUnit, TariffClassification, State, Incoterm)
+- The Artisan export command should be reusable when SAT publishes catalog updates — run once, commit, seed
 
 </specifics>
 
