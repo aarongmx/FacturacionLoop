@@ -1,0 +1,6 @@
+﻿clave,descripcion,vigencia_inicio,vigencia_fin
+I,Ingreso,2022-01-01,
+E,Egreso,2022-01-01,
+T,Traslado,2022-01-01,
+N,Nómina,2022-01-01,
+P,Pago,2022-01-01,
