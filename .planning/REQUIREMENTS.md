@@ -9,18 +9,18 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Catálogos SAT
 
-- [ ] **CAT-01**: Sistema tiene catálogo c_RegimenFiscal con ~20 regímenes fiscales del SAT
-- [ ] **CAT-02**: Sistema tiene catálogo c_UsoCFDI con ~30 usos de CFDI válidos
-- [ ] **CAT-03**: Sistema tiene catálogo c_FormaPago con ~30 formas de pago del SAT
-- [ ] **CAT-04**: Sistema tiene catálogo c_MetodoPago con PUE y PPD
-- [ ] **CAT-05**: Sistema tiene catálogo c_TipoDeComprobante con los 6 tipos (I, E, T, N, P, nomina)
-- [ ] **CAT-06**: Sistema tiene catálogo c_ClaveProdServ con ~53,000 claves de producto/servicio
-- [ ] **CAT-07**: Sistema tiene catálogo c_ClaveUnidad con ~2,000 unidades SAT
-- [ ] **CAT-08**: Sistema tiene catálogo c_Impuesto con IVA, ISR e IEPS
-- [ ] **CAT-09**: Sistema tiene catálogo c_TipoFactor con Tasa, Cuota y Exento
-- [ ] **CAT-10**: Sistema tiene catálogo c_TasaOCuota con las tasas de IVA válidas
-- [ ] **CAT-11**: Sistema tiene catálogo c_ObjetoImp con los 3 valores (01, 02, 03)
-- [ ] **CAT-12**: Sistema tiene catálogo c_TipoRelacion con ~10 tipos de relación entre CFDIs
+- [x] **CAT-01**: Sistema tiene catálogo c_RegimenFiscal con ~20 regímenes fiscales del SAT
+- [x] **CAT-02**: Sistema tiene catálogo c_UsoCFDI con ~30 usos de CFDI válidos
+- [x] **CAT-03**: Sistema tiene catálogo c_FormaPago con ~30 formas de pago del SAT
+- [x] **CAT-04**: Sistema tiene catálogo c_MetodoPago con PUE y PPD
+- [x] **CAT-05**: Sistema tiene catálogo c_TipoDeComprobante con los 6 tipos (I, E, T, N, P, nomina)
+- [x] **CAT-06**: Sistema tiene catálogo c_ClaveProdServ con ~53,000 claves de producto/servicio
+- [x] **CAT-07**: Sistema tiene catálogo c_ClaveUnidad con ~2,000 unidades SAT
+- [x] **CAT-08**: Sistema tiene catálogo c_Impuesto con IVA, ISR e IEPS
+- [x] **CAT-09**: Sistema tiene catálogo c_TipoFactor con Tasa, Cuota y Exento
+- [x] **CAT-10**: Sistema tiene catálogo c_TasaOCuota con las tasas de IVA válidas
+- [x] **CAT-11**: Sistema tiene catálogo c_ObjetoImp con los 3 valores (01, 02, 03)
+- [x] **CAT-12**: Sistema tiene catálogo c_TipoRelacion con ~10 tipos de relación entre CFDIs
 - [ ] **CAT-13**: Sistema tiene catálogo c_ClaveProdServCP con ~17,000 claves para Carta Porte
 - [ ] **CAT-14**: Sistema tiene catálogo c_TipoPermiso con ~20 permisos SCT
 - [ ] **CAT-15**: Sistema tiene catálogo c_SubTipoRem con ~20 subtipos de remolque
@@ -165,18 +165,18 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CAT-01 | Phase 1 | Pending |
-| CAT-02 | Phase 1 | Pending |
-| CAT-03 | Phase 1 | Pending |
-| CAT-04 | Phase 1 | Pending |
-| CAT-05 | Phase 1 | Pending |
-| CAT-06 | Phase 1 | Pending |
-| CAT-07 | Phase 1 | Pending |
-| CAT-08 | Phase 1 | Pending |
-| CAT-09 | Phase 1 | Pending |
-| CAT-10 | Phase 1 | Pending |
-| CAT-11 | Phase 1 | Pending |
-| CAT-12 | Phase 1 | Pending |
+| CAT-01 | Phase 1 | Complete |
+| CAT-02 | Phase 1 | Complete |
+| CAT-03 | Phase 1 | Complete |
+| CAT-04 | Phase 1 | Complete |
+| CAT-05 | Phase 1 | Complete |
+| CAT-06 | Phase 1 | Complete |
+| CAT-07 | Phase 1 | Complete |
+| CAT-08 | Phase 1 | Complete |
+| CAT-09 | Phase 1 | Complete |
+| CAT-10 | Phase 1 | Complete |
+| CAT-11 | Phase 1 | Complete |
+| CAT-12 | Phase 1 | Complete |
 | CSD-01 | Phase 2 | Pending |
 | CSD-02 | Phase 2 | Pending |
 | CSD-03 | Phase 2 | Pending |
