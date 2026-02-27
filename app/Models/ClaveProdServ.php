@@ -18,6 +18,9 @@ final class ClaveProdServ extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'claves_prod_serv';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

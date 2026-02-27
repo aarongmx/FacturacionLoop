@@ -19,6 +19,9 @@ final class Impuesto extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'impuestos';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

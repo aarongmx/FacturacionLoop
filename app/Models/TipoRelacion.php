@@ -18,6 +18,9 @@ final class TipoRelacion extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'tipos_relacion';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

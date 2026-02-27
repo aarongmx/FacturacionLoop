@@ -18,6 +18,9 @@ final class UsoCfdi extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'usos_cfdi';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

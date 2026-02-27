@@ -18,6 +18,9 @@ final class ObjetoImp extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'objetos_imp';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

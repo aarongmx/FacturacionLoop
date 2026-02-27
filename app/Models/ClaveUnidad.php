@@ -18,6 +18,9 @@ final class ClaveUnidad extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'claves_unidad';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

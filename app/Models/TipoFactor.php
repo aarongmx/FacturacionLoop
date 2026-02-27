@@ -18,6 +18,9 @@ final class TipoFactor extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'tipos_factor';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

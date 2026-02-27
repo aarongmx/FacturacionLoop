@@ -18,6 +18,9 @@ final class MetodoPago extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'metodos_pago';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

@@ -18,6 +18,9 @@ final class FormaPago extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'formas_pago';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]

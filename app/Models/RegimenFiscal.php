@@ -18,6 +18,9 @@ final class RegimenFiscal extends Model
     public $incrementing = false;
 
     #[Override]
+    protected $table = 'regimenes_fiscales';
+
+    #[Override]
     protected $primaryKey = 'clave';
 
     #[Override]
