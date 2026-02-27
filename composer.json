@@ -74,7 +74,9 @@
         ],
         "latest:version": [
             "composer update && composer bump"
-        ]
+        ],
+        "test:lint": "pint --test",
+        "lint": "pint"
     },
     "extra": {
         "laravel": {
