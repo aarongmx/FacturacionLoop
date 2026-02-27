@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Phase 1 context updated with XLS-to-CSV decisions
-last_updated: "2026-02-27T20:02:45.852Z"
+status: executing
+stopped_at: Completed 01-02-PLAN.md — SAT catalog seeders and sat:export-csv command committed
+last_updated: "2026-02-27T20:21:00Z"
 progress:
   total_phases: 1
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -24,17 +24,17 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 ## Current Position
 
 Phase: 1 of 9 (Catálogos SAT Base)
-Plan: 4 of 4 in current phase
-Status: Executing — Plans 01, 02, 03 complete
-Last activity: 2026-02-27 — Plan 01-03 complete: 12 Filament read-only resources for SAT catalogs created
+Plan: 3 of 4 in current phase complete (Plans 01, 02, 03 done)
+Status: Executing — Plan 04 is next
+Last activity: 2026-02-27 — Plan 01-02 complete: sat:export-csv command, 12 CSVs, 12 seeders, all tables seeded
 
 ## Session Handoff
 
-**Stopped at:** Phase 1 context updated with XLS-to-CSV decisions
+**Stopped at:** Completed 01-02-PLAN.md — SAT catalog seeders and sat:export-csv command committed
 **Resume with:** `/gsd:execute-phase 01-cat-logos-sat-base` (plan 04)
-**Resume file:** .planning/phases/01-cat-logos-sat-base/01-CONTEXT.md
+**Resume file:** .planning/phases/01-cat-logos-sat-base/01-04-PLAN.md
 
-Progress: [██░░░░░░░░] 8%
+Progress: [███░░░░░░░] 12%
 
 ## Performance Metrics
 
@@ -47,10 +47,10 @@ Progress: [██░░░░░░░░] 8%
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-cat-logos-sat-base | 3/4 | 44 min | 14 min |
+| 01-cat-logos-sat-base | 3/4 | 60 min | 15 min |
 
 **Recent Trend:**
-- Last 5 plans: 4 min, 20 min, 20 min
+- Last 5 plans: 4 min, 20 min, 20 min, 16 min
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -73,6 +73,10 @@ Recent decisions affecting current work:
 - [01-03]: Filament 5 uses Schema API (not Form $form) — form() is public static function form(Schema $schema): Schema
 - [01-03]: Filament 5 property types: $navigationGroup requires string|UnitEnum|null, $navigationIcon requires string|BackedEnum|null — ?string narrows type illegally
 - [01-03]: deferLoading() applied to ClaveProdServResource (53K rows) and ClaveUnidadResource (~2K rows) for performance
+- [01-02]: sat:export-csv Artisan command replaces manual XLS export — automatic, repeatable, phpspreadsheet reads XLS
+- [01-02]: TipoFactor has no descripcion in XLS; seeder uses clave as descripcion (Tasa/Cuota/Exento are self-describing)
+- [01-02]: TasaOCuota XLS impuesto column uses text names — export command maps IVA→002, IEPS→003, ISR→001 at export time
+- [01-02]: claves_unidad.descripcion changed to text() and simbolo to string(50) — SAT data exceeds original column sizes
 
 ### Pending Todos
 
@@ -88,5 +92,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 01-03-PLAN.md — 12 Filament resources for SAT catalogs committed (d91f44d, 5e49411)
+Stopped at: Completed 01-02-PLAN.md — sat:export-csv command, 12 CSVs, 12 seeders committed (dcacd62, 7a1a171, 4cecf23, b870327)
 Resume file: .planning/phases/01-cat-logos-sat-base/01-04-PLAN.md
