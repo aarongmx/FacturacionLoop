@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('claves_unidad', function (Blueprint $table): void {
             $table->string('clave', 10)->primary();
             $table->string('nombre');
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->text('nota')->nullable();
             $table->date('vigencia_inicio')->nullable();
             $table->date('vigencia_fin')->nullable();
-            $table->string('simbolo', 20)->nullable();
+            $table->string('simbolo', 50)->nullable();
             $table->timestamps();
             $table->index('nombre');
         });
