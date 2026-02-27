@@ -33,7 +33,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A Filament user can search and filter the c_ClaveProdServ catalog (approx 53,000 rows) and retrieve a specific clave
   3. A Filament user can search and filter the c_ClaveUnidad catalog (approx 2,000 rows) and retrieve a specific unit
   4. All catalog models have Eloquent relationships usable by the CFDI form in the next phase
-**Plans**: TBD
+**Plans**: 4 plans
+  - [ ] 01-01-PLAN.md — Migrations, models, and factories for all 12 SAT catalogs
+  - [ ] 01-02-PLAN.md — XLS-to-CSV conversion + seeders for all 12 catalogs + DatabaseSeeder registration
+  - [ ] 01-03-PLAN.md — Filament read-only resources for all 12 catalogs
+  - [ ] 01-04-PLAN.md — Feature tests for all 12 catalog models
 
 ### Phase 2: Gestión de CSD
 **Goal**: Users can securely upload and manage their Certificado de Sello Digital from Filament, with encrypted storage and expiry monitoring
@@ -138,7 +142,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Catálogos SAT Base | 0/TBD | Not started | - |
+| 1. Catálogos SAT Base | 0/4 | Planned | - |
 | 2. Gestión de CSD | 0/TBD | Not started | - |
 | 3. Emisor, Receptores y Productos | 0/TBD | Not started | - |
 | 4. CFDI Base y Timbrado | 0/TBD | Not started | - |
