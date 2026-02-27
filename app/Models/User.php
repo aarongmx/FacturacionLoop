@@ -5,20 +5,27 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Override;
 
 final class User extends Authenticatable
 {
+    /**
+     * @use HasFactory<UserFactory>
+     */
     use HasFactory;
+
     use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
-    #[\Override]
+    #[Override]
     protected $fillable = [
         'name',
         'email',
@@ -30,7 +37,7 @@ final class User extends Authenticatable
      *
      * @var list<string>
      */
-    #[\Override]
+    #[Override]
     protected $hidden = [
         'password',
         'remember_token',
