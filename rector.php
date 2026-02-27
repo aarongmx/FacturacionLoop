@@ -31,6 +31,7 @@ try {
             LaravelSetList::LARAVEL_TESTING,
             LaravelSetList::LARAVEL_TYPE_DECLARATIONS,
         ])
+        ->withImportNames(removeUnusedImports: true)
         ->withComposerBased(laravel: true)
         ->withPreparedSets(
             deadCode: true,
