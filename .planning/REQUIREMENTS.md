@@ -165,13 +165,97 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| — | — | — |
+| CAT-01 | Phase 1 | Pending |
+| CAT-02 | Phase 1 | Pending |
+| CAT-03 | Phase 1 | Pending |
+| CAT-04 | Phase 1 | Pending |
+| CAT-05 | Phase 1 | Pending |
+| CAT-06 | Phase 1 | Pending |
+| CAT-07 | Phase 1 | Pending |
+| CAT-08 | Phase 1 | Pending |
+| CAT-09 | Phase 1 | Pending |
+| CAT-10 | Phase 1 | Pending |
+| CAT-11 | Phase 1 | Pending |
+| CAT-12 | Phase 1 | Pending |
+| CSD-01 | Phase 2 | Pending |
+| CSD-02 | Phase 2 | Pending |
+| CSD-03 | Phase 2 | Pending |
+| CSD-04 | Phase 2 | Pending |
+| CSD-05 | Phase 2 | Pending |
+| CSD-06 | Phase 2 | Pending |
+| CSD-07 | Phase 2 | Pending |
+| ENT-01 | Phase 3 | Pending |
+| ENT-02 | Phase 3 | Pending |
+| ENT-03 | Phase 3 | Pending |
+| ENT-04 | Phase 3 | Pending |
+| ENT-05 | Phase 3 | Pending |
+| PROD-01 | Phase 3 | Pending |
+| PROD-02 | Phase 3 | Pending |
+| PROD-03 | Phase 3 | Pending |
+| CFDI-01 | Phase 4 | Pending |
+| CFDI-02 | Phase 4 | Pending |
+| CFDI-03 | Phase 4 | Pending |
+| CFDI-04 | Phase 4 | Pending |
+| CFDI-05 | Phase 4 | Pending |
+| CFDI-06 | Phase 4 | Pending |
+| CFDI-07 | Phase 4 | Pending |
+| CFDI-08 | Phase 4 | Pending |
+| CFDI-09 | Phase 4 | Pending |
+| CFDI-10 | Phase 4 | Pending |
+| CFDI-11 | Phase 4 | Pending |
+| CFDI-12 | Phase 4 | Pending |
+| PAC-01 | Phase 4 | Pending |
+| PAC-02 | Phase 4 | Pending |
+| PAC-03 | Phase 4 | Pending |
+| PAC-04 | Phase 4 | Pending |
+| PAC-05 | Phase 4 | Pending |
+| POST-01 | Phase 5 | Pending |
+| POST-02 | Phase 5 | Pending |
+| POST-03 | Phase 5 | Pending |
+| POST-04 | Phase 5 | Pending |
+| POST-05 | Phase 5 | Pending |
+| LIST-01 | Phase 5 | Pending |
+| LIST-02 | Phase 5 | Pending |
+| LIST-03 | Phase 5 | Pending |
+| CANC-01 | Phase 6 | Pending |
+| CANC-02 | Phase 6 | Pending |
+| CANC-03 | Phase 6 | Pending |
+| CANC-04 | Phase 6 | Pending |
+| CANC-05 | Phase 6 | Pending |
+| PAG-01 | Phase 7 | Pending |
+| PAG-02 | Phase 7 | Pending |
+| PAG-03 | Phase 7 | Pending |
+| PAG-04 | Phase 7 | Pending |
+| PAG-05 | Phase 7 | Pending |
+| PAG-06 | Phase 7 | Pending |
+| CRP-01 | Phase 8 | Pending |
+| CRP-02 | Phase 8 | Pending |
+| CRP-03 | Phase 8 | Pending |
+| CRP-04 | Phase 8 | Pending |
+| CRP-05 | Phase 8 | Pending |
+| CRP-06 | Phase 8 | Pending |
+| CRP-07 | Phase 8 | Pending |
+| CAT-13 | Phase 8 | Pending |
+| CAT-14 | Phase 8 | Pending |
+| CAT-15 | Phase 8 | Pending |
+| CAT-16 | Phase 8 | Pending |
+| CAT-17 | Phase 8 | Pending |
+| CEX-01 | Phase 9 | Pending |
+| CEX-02 | Phase 9 | Pending |
+| CEX-03 | Phase 9 | Pending |
+| CEX-04 | Phase 9 | Pending |
+| CEX-05 | Phase 9 | Pending |
+| CAT-18 | Phase 9 | Pending |
+| CAT-19 | Phase 9 | Pending |
+| CAT-20 | Phase 9 | Pending |
 
 **Coverage:**
-- v1 requirements: 62 total
-- Mapped to phases: 0
-- Unmapped: 62 ⚠️
+- v1 requirements: 83 total (20 CAT + 7 CSD + 5 ENT + 3 PROD + 12 CFDI + 5 PAC + 5 POST + 5 CANC + 6 PAG + 7 CRP + 5 CEX + 3 LIST)
+- Mapped to phases: 83
+- Unmapped: 0 (100% coverage)
+
+**Note:** The original traceability section listed 62 requirements but the actual count in v1 Requirements is 83. All 83 are mapped.
 
 ---
 *Requirements defined: 2026-02-27*
-*Last updated: 2026-02-27 after initial definition*
+*Last updated: 2026-02-27 after roadmap creation — all requirements mapped to phases*
