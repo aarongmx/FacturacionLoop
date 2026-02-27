@@ -12,7 +12,7 @@ This roadmap delivers a SAT-compliant CFDI 4.0 electronic invoicing system for a
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Catálogos SAT Base** - Seed all missing SAT catalog tables required for CFDI base forms
+- [x] **Phase 1: Catálogos SAT Base** - Seed all missing SAT catalog tables required for CFDI base forms (completed 2026-02-27)
 - [ ] **Phase 2: Gestión de CSD** - Upload, encrypt, and manage Certificados de Sello Digital in Filament
 - [ ] **Phase 3: Emisor, Receptores y Productos** - Configure issuer, build customer catalog, and build product/service catalog
 - [ ] **Phase 4: CFDI Base y Timbrado** - Create Ingreso/Egreso CFDIs, generate and seal XML, stamp with Finkok
@@ -142,7 +142,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Catálogos SAT Base | 2/4 | In Progress|  |
+| 1. Catálogos SAT Base | 4/4 | Complete   | 2026-02-27 |
 | 2. Gestión de CSD | 0/TBD | Not started | - |
 | 3. Emisor, Receptores y Productos | 0/TBD | Not started | - |
 | 4. CFDI Base y Timbrado | 0/TBD | Not started | - |
