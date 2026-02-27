@@ -161,6 +161,16 @@ None - no external service configuration required.
 - All resources auto-discovered — no manual registration needed
 - Navigation group 'Catálogos SAT' will appear in admin sidebar after seeding
 
+## Self-Check: PASSED
+
+- FOUND: app/Filament/Resources/RegimenFiscalResource.php
+- FOUND: app/Filament/Resources/ClaveProdServResource.php
+- FOUND: app/Filament/Resources/ClaveUnidadResource.php
+- FOUND: app/Filament/Resources/TasaOCuotaResource.php
+- FOUND: .planning/phases/01-cat-logos-sat-base/01-03-SUMMARY.md
+- FOUND: commit d91f44d (Task 1)
+- FOUND: commit 5e49411 (Task 2)
+
 ---
 *Phase: 01-cat-logos-sat-base*
 *Completed: 2026-02-27*
