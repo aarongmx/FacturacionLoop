@@ -10,34 +10,34 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 ## Current Position
 
 Phase: 1 of 9 (Catálogos SAT Base)
-Plan: 2 of 4 in current phase
-Status: Executing — Plan 1 complete
-Last activity: 2026-02-27 — Plan 01-01 complete: 12 SAT catalog migrations, models, and factories created
+Plan: 4 of 4 in current phase
+Status: Executing — Plans 01, 02, 03 complete
+Last activity: 2026-02-27 — Plan 01-03 complete: 12 Filament read-only resources for SAT catalogs created
 
 ## Session Handoff
 
-**Stopped at:** Completed 01-01-PLAN.md (12 SAT catalog tables, models, factories)
-**Resume with:** `/gsd:execute-phase 01-cat-logos-sat-base` (plan 02)
-**Resume file:** `.planning/phases/01-cat-logos-sat-base/01-02-PLAN.md`
+**Stopped at:** Completed 01-03-PLAN.md (12 Filament resources for SAT catalogs)
+**Resume with:** `/gsd:execute-phase 01-cat-logos-sat-base` (plan 04)
+**Resume file:** `.planning/phases/01-cat-logos-sat-base/01-04-PLAN.md`
 
-Progress: [█░░░░░░░░░] 3%
+Progress: [██░░░░░░░░] 8%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 4 min
-- Total execution time: 0.07 hours
+- Total plans completed: 3
+- Average duration: 14 min
+- Total execution time: 0.6 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-cat-logos-sat-base | 1/4 | 4 min | 4 min |
+| 01-cat-logos-sat-base | 3/4 | 44 min | 14 min |
 
 **Recent Trend:**
-- Last 5 plans: 4 min
-- Trend: Baseline established
+- Last 5 plans: 4 min, 20 min, 20 min
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -56,6 +56,9 @@ Recent decisions affecting current work:
 - [01-01]: TasaOCuota uses auto-increment id (no natural single-column PK in c_TasaOCuota)
 - [01-01]: TipoDeComprobante explicitly sets $table='tipos_comprobante' (non-standard plural)
 - [01-01]: Sail Docker (PHP 8.5) used for migrations — system PHP is 8.4.1, below project requirement
+- [01-03]: Filament 5 uses Schema API (not Form $form) — form() is public static function form(Schema $schema): Schema
+- [01-03]: Filament 5 property types: $navigationGroup requires string|UnitEnum|null, $navigationIcon requires string|BackedEnum|null — ?string narrows type illegally
+- [01-03]: deferLoading() applied to ClaveProdServResource (53K rows) and ClaveUnidadResource (~2K rows) for performance
 
 ### Pending Todos
 
@@ -71,5 +74,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 01-01-PLAN.md — 12 SAT catalog migrations, models, factories committed (3b25848, 2f7e7ab)
-Resume file: .planning/phases/01-cat-logos-sat-base/01-02-PLAN.md
+Stopped at: Completed 01-03-PLAN.md — 12 Filament resources for SAT catalogs committed (d91f44d, 5e49411)
+Resume file: .planning/phases/01-cat-logos-sat-base/01-04-PLAN.md
