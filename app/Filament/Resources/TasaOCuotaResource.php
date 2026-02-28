@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TasaOCuotaResource\Pages;
+use App\Filament\Resources\TasaOCuotaResource\Pages\ListTasaOCuotas;
 use App\Models\TasaOCuota;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -12,18 +12,24 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class TasaOCuotaResource extends Resource
 {
+    #[Override]
     protected static ?string $model = TasaOCuota::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Catálogos SAT';
 
+    #[Override]
     protected static ?string $modelLabel = 'Tasa o Cuota';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Tasas o Cuotas';
 
     public static function form(Schema $schema): Schema
@@ -61,7 +67,7 @@ final class TasaOCuotaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTasaOCuotas::route('/'),
+            'index' => ListTasaOCuotas::route('/'),
         ];
     }
 }

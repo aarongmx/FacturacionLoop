@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegimenFiscalResource\Pages;
+use App\Filament\Resources\RegimenFiscalResource\Pages\ListRegimenFiscals;
 use App\Models\RegimenFiscal;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -12,18 +12,24 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class RegimenFiscalResource extends Resource
 {
+    #[Override]
     protected static ?string $model = RegimenFiscal::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Catálogos SAT';
 
+    #[Override]
     protected static ?string $modelLabel = 'Régimen Fiscal';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Regímenes Fiscales';
 
     public static function form(Schema $schema): Schema
@@ -57,7 +63,7 @@ final class RegimenFiscalResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRegimenFiscals::route('/'),
+            'index' => ListRegimenFiscals::route('/'),
         ];
     }
 }

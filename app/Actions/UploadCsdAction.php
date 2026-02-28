@@ -7,8 +7,8 @@ namespace App\Actions;
 use App\Data\UploadCsdData;
 use App\Enums\CsdStatus;
 use App\Models\Csd;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use PhpCfdi\Credentials\Credential;
@@ -29,11 +29,8 @@ final class UploadCsdAction
                 $data->keyFilePath,
                 $data->passphrase,
             );
-        } catch (UnexpectedValueException $e) {
-            throw new RuntimeException(
-                'El certificado y la llave privada no coinciden, o la contraseña es incorrecta.',
-                previous: $e,
-            );
+        } catch (UnexpectedValueException $unexpectedValueException) {
+            throw new RuntimeException('El certificado y la llave privada no coinciden, o la contraseña es incorrecta.', $unexpectedValueException->getCode(), previous: $unexpectedValueException);
         }
 
         // Step 2: Verify it is a CSD (not FIEL)
@@ -50,8 +47,8 @@ final class UploadCsdAction
         // Use decimal() for no_certificado — SAT serial numbers are stored as decimal strings; bytes() returns raw binary
         $noCertificado = $certificate->serialNumber()->decimal();
         $rfc = $certificate->rfc();
-        $fechaInicio = Carbon::instance($certificate->validFromDateTime());
-        $fechaFin = Carbon::instance($certificate->validToDateTime());
+        $fechaInicio = Date::instance($certificate->validFromDateTime());
+        $fechaFin = Date::instance($certificate->validToDateTime());
 
         // Step 4: Determine initial status based on expiry
         $status = match (true) {
@@ -72,7 +69,7 @@ final class UploadCsdAction
         Storage::disk('local')->put($cerStorePath, $cerContents);
 
         // Step 7: Persist the CSD record within a transaction
-        $csd = DB::transaction(fn (): Csd => Csd::create([
+        $csd = DB::transaction(fn (): Csd => Csd::query()->create([
             'no_certificado' => $noCertificado,
             'rfc' => $rfc,
             'fecha_inicio' => $fechaInicio,

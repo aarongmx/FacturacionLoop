@@ -8,9 +8,11 @@ use App\Filament\Resources\CsdResource;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Schemas\Schema;
+use Override;
 
 final class ViewCsd extends ViewRecord
 {
+    #[Override]
     protected static string $resource = CsdResource::class;
 
     public function infolist(Schema $schema): Schema

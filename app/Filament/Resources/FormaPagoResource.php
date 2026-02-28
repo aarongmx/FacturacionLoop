@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FormaPagoResource\Pages;
+use App\Filament\Resources\FormaPagoResource\Pages\ListFormaPagos;
 use App\Models\FormaPago;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -12,18 +12,24 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class FormaPagoResource extends Resource
 {
+    #[Override]
     protected static ?string $model = FormaPago::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Catálogos SAT';
 
+    #[Override]
     protected static ?string $modelLabel = 'Forma de Pago';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Formas de Pago';
 
     public static function form(Schema $schema): Schema
@@ -54,7 +60,7 @@ final class FormaPagoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListFormaPagos::route('/'),
+            'index' => ListFormaPagos::route('/'),
         ];
     }
 }

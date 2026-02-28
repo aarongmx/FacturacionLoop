@@ -14,7 +14,7 @@ final class ClaveUnidadSeeder extends Seeder
         $csvPath = database_path('data/c_ClaveUnidad.csv');
 
         if (! file_exists($csvPath)) {
-            $this->command->warn("CSV not found: {$csvPath}. Skipping.");
+            $this->command->warn(sprintf('CSV not found: %s. Skipping.', $csvPath));
 
             return;
         }
@@ -22,17 +22,17 @@ final class ClaveUnidadSeeder extends Seeder
         $handle = fopen($csvPath, 'r');
 
         if ($handle === false) {
-            $this->command->error("Cannot open: {$csvPath}");
+            $this->command->error('Cannot open: '.$csvPath);
 
             return;
         }
 
-        fgetcsv($handle); // skip header row
+        fgetcsv($handle, escape: '\\'); // skip header row
 
         $chunk = [];
         $now = now();
 
-        while (($row = fgetcsv($handle)) !== false) {
+        while (($row = fgetcsv($handle, escape: '\\')) !== false) {
             $clave = mb_trim($row[0] ?? '');
 
             if ($clave === '') {

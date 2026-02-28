@@ -7,6 +7,7 @@ namespace App\Console\Commands;
 use DateTimeImmutable;
 use Exception;
 use Illuminate\Console\Command;
+use Override;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
@@ -26,11 +27,13 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 final class SatExportCsv extends Command
 {
     /** @var string */
+    #[Override]
     protected $signature = 'sat:export-csv
                             {--source= : Path to the XLS file (default: database/data/catCFDI_V_4_20260212.xls)}
                             {--output= : Output directory for CSV files (default: database/data)}';
 
     /** @var string */
+    #[Override]
     protected $description = 'Export SAT CFDI catalog sheets from XLS to normalized CSV files in database/data/';
 
     /**
@@ -170,17 +173,18 @@ final class SatExportCsv extends Command
         $outputDir = $this->option('output') ?? database_path('data');
 
         if (! file_exists($sourcePath)) {
-            $this->error("XLS source file not found: {$sourcePath}");
+            $this->error('XLS source file not found: '.$sourcePath);
 
             return self::FAILURE;
         }
 
-        $this->info("Loading XLS from: {$sourcePath}");
+        $this->info('Loading XLS from: '.$sourcePath);
         $this->info('This may take a moment for large sheets (c_ClaveProdServ ~52K rows)...');
 
         $reader = IOFactory::createReaderForFile($sourcePath);
         $reader->setReadDataOnly(false);
         $reader->setLoadSheetsOnly(array_keys($this->sheetConfig));
+
         $spreadsheet = $reader->load($sourcePath);
 
         $exported = 0;
@@ -189,8 +193,8 @@ final class SatExportCsv extends Command
         foreach ($this->sheetConfig as $sheetName => $config) {
             $sheet = $spreadsheet->getSheetByName($sheetName);
 
-            if ($sheet === null) {
-                $this->warn("Sheet not found: {$sheetName} — skipping.");
+            if (! $sheet instanceof Worksheet) {
+                $this->warn(sprintf('Sheet not found: %s — skipping.', $sheetName));
                 $failed++;
 
                 continue;
@@ -199,12 +203,12 @@ final class SatExportCsv extends Command
             $outputPath = mb_rtrim($outputDir, '/').'/'.$config['filename'];
             $rowsWritten = $this->exportSheet($sheet, $config, $outputPath, $sheetName === 'c_TasaOCuota');
 
-            $this->line("  Exported {$sheetName} → {$config['filename']} ({$rowsWritten} rows)");
+            $this->line(sprintf('  Exported %s → %s (%d rows)', $sheetName, $config['filename'], $rowsWritten));
             $exported++;
         }
 
         $this->newLine();
-        $this->info("Done: {$exported} sheets exported, {$failed} skipped.");
+        $this->info(sprintf('Done: %d sheets exported, %d skipped.', $exported, $failed));
 
         if ($failed > 0) {
             return self::FAILURE;
@@ -221,7 +225,7 @@ final class SatExportCsv extends Command
         $handle = fopen($outputPath, 'w');
 
         if ($handle === false) {
-            $this->error("Cannot write to: {$outputPath}");
+            $this->error('Cannot write to: '.$outputPath);
 
             return 0;
         }
@@ -230,7 +234,7 @@ final class SatExportCsv extends Command
         fwrite($handle, "\xEF\xBB\xBF");
 
         // Write header row
-        fputcsv($handle, $config['headers']);
+        fputcsv($handle, $config['headers'], escape: '\\');
 
         $highestRow = $sheet->getHighestRow();
         $rowsWritten = 0;
@@ -262,7 +266,7 @@ final class SatExportCsv extends Command
                 $outputRow = $this->normalizeTasaOCuotaRow($outputRow);
             }
 
-            fputcsv($handle, $outputRow);
+            fputcsv($handle, $outputRow, escape: '\\');
             $rowsWritten++;
         }
 
@@ -281,12 +285,12 @@ final class SatExportCsv extends Command
             return $this->normalizeBooleanCell($cell);
         }
 
-        return mb_trim((string) $cell->getFormattedValue());
+        return mb_trim($cell->getFormattedValue());
     }
 
     private function normalizeBooleanCell(Cell $cell): string
     {
-        $raw = mb_trim((string) $cell->getFormattedValue());
+        $raw = mb_trim($cell->getFormattedValue());
         $lower = mb_strtolower($raw);
 
         // Accept 'Sí'/'si' (with or without accent), and numeric 1
@@ -301,7 +305,7 @@ final class SatExportCsv extends Command
     {
         $value = $cell->getValue();
 
-        if ($value === null || $value === '' || $value === 0) {
+        if (in_array($value, [null, '', 0], true)) {
             return '';
         }
 
@@ -317,7 +321,7 @@ final class SatExportCsv extends Command
         }
 
         // Handle string date formats like M/D/YYYY from getFormattedValue()
-        $formatted = mb_trim((string) $cell->getFormattedValue());
+        $formatted = mb_trim($cell->getFormattedValue());
 
         if ($formatted === '' || $formatted === '0') {
             return '';

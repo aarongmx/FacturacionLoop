@@ -14,7 +14,7 @@ final class TasaOCuotaSeeder extends Seeder
         $csvPath = database_path('data/c_TasaOCuota.csv');
 
         if (! file_exists($csvPath)) {
-            $this->command->warn("CSV not found: {$csvPath}. Skipping.");
+            $this->command->warn(sprintf('CSV not found: %s. Skipping.', $csvPath));
 
             return;
         }
@@ -22,12 +22,12 @@ final class TasaOCuotaSeeder extends Seeder
         $handle = fopen($csvPath, 'r');
 
         if ($handle === false) {
-            $this->command->error("Cannot open: {$csvPath}");
+            $this->command->error('Cannot open: '.$csvPath);
 
             return;
         }
 
-        fgetcsv($handle); // skip header row
+        fgetcsv($handle, escape: '\\'); // skip header row
 
         $chunk = [];
         $now = now();
@@ -35,7 +35,7 @@ final class TasaOCuotaSeeder extends Seeder
         // Composite unique key: ['impuesto', 'factor', 'valor_minimo', 'valor_maximo', 'traslado', 'retencion']
         $uniqueBy = ['impuesto', 'factor', 'valor_minimo', 'valor_maximo', 'traslado', 'retencion'];
 
-        while (($row = fgetcsv($handle)) !== false) {
+        while (($row = fgetcsv($handle, escape: '\\')) !== false) {
             $impuesto = mb_trim($row[3] ?? '');
 
             if ($impuesto === '') {

@@ -4,25 +4,31 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ClaveUnidadResource\Pages;
+use App\Filament\Resources\ClaveUnidadResource\Pages\ListClaveUnidads;
 use App\Models\ClaveUnidad;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class ClaveUnidadResource extends Resource
 {
+    #[Override]
     protected static ?string $model = ClaveUnidad::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Catálogos SAT';
 
+    #[Override]
     protected static ?string $modelLabel = 'Clave de Unidad';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Claves de Unidad';
 
     public static function form(Schema $schema): Schema
@@ -57,7 +63,7 @@ final class ClaveUnidadResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListClaveUnidads::route('/'),
+            'index' => ListClaveUnidads::route('/'),
         ];
     }
 }

@@ -4,25 +4,31 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MetodoPagoResource\Pages;
+use App\Filament\Resources\MetodoPagoResource\Pages\ListMetodoPagos;
 use App\Models\MetodoPago;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class MetodoPagoResource extends Resource
 {
+    #[Override]
     protected static ?string $model = MetodoPago::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Catálogos SAT';
 
+    #[Override]
     protected static ?string $modelLabel = 'Método de Pago';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Métodos de Pago';
 
     public static function form(Schema $schema): Schema
@@ -49,7 +55,7 @@ final class MetodoPagoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMetodoPagos::route('/'),
+            'index' => ListMetodoPagos::route('/'),
         ];
     }
 }

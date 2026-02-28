@@ -7,7 +7,9 @@ namespace App\Filament\Resources;
 use App\Actions\ActivateCsdAction;
 use App\Actions\DeactivateCsdAction;
 use App\Enums\CsdStatus;
-use App\Filament\Resources\CsdResource\Pages;
+use App\Filament\Resources\CsdResource\Pages\CreateCsd;
+use App\Filament\Resources\CsdResource\Pages\ListCsds;
+use App\Filament\Resources\CsdResource\Pages\ViewCsd;
 use App\Models\Csd;
 use BackedEnum;
 use Filament\Actions\Action;
@@ -17,18 +19,24 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Override;
 use UnitEnum;
 
 final class CsdResource extends Resource
 {
+    #[Override]
     protected static ?string $model = Csd::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shield-check';
 
+    #[Override]
     protected static string|UnitEnum|null $navigationGroup = 'Configuración';
 
+    #[Override]
     protected static ?string $modelLabel = 'Certificado de Sello Digital';
 
+    #[Override]
     protected static ?string $pluralModelLabel = 'Certificados de Sello Digital';
 
     public static function form(Schema $schema): Schema
@@ -72,7 +80,7 @@ final class CsdResource extends Resource
                     ->requiresConfirmation()
                     ->modalHeading('¿Activar este CSD?')
                     ->modalDescription('Se desactivará el CSD activo actual y este certificado será usado para firmar facturas.')
-                    ->action(fn (Csd $record) => app(ActivateCsdAction::class)($record))
+                    ->action(fn (Csd $record) => resolve(ActivateCsdAction::class)($record))
                     ->visible(fn (Csd $record): bool => $record->status !== CsdStatus::Active && ! $record->fecha_fin->isPast()),
                 Action::make('desactivar')
                     ->label('Desactivar')
@@ -81,7 +89,7 @@ final class CsdResource extends Resource
                     ->requiresConfirmation()
                     ->modalHeading('¿Desactivar este CSD?')
                     ->modalDescription('No podrás timbrar facturas hasta que actives otro certificado.')
-                    ->action(fn (Csd $record) => app(DeactivateCsdAction::class)($record))
+                    ->action(fn (Csd $record) => resolve(DeactivateCsdAction::class)($record))
                     ->visible(fn (Csd $record): bool => $record->status === CsdStatus::Active),
                 DeleteAction::make()
                     ->label('Eliminar'),
@@ -93,9 +101,9 @@ final class CsdResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCsds::route('/'),
-            'create' => Pages\CreateCsd::route('/create'),
-            'view' => Pages\ViewCsd::route('/{record}'),
+            'index' => ListCsds::route('/'),
+            'create' => CreateCsd::route('/create'),
+            'view' => ViewCsd::route('/{record}'),
         ];
     }
 }

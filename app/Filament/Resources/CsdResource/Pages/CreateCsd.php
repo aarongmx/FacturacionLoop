@@ -14,12 +14,15 @@ use Filament\Resources\Pages\CreateRecord;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Override;
 use RuntimeException;
 
 final class CreateCsd extends CreateRecord
 {
+    #[Override]
     protected static string $resource = CsdResource::class;
 
+    #[Override]
     protected static ?string $title = 'Subir Certificado de Sello Digital';
 
     public function form(Schema $schema): Schema
@@ -64,18 +67,18 @@ final class CreateCsd extends CreateRecord
         $keyPath = Storage::disk('local')->path($data['key_file']);
 
         try {
-            $csd = app(UploadCsdAction::class)(
+            $csd = resolve(UploadCsdAction::class)(
                 new UploadCsdData(
                     cerFilePath: $cerPath,
                     keyFilePath: $keyPath,
                     passphrase: $data['passphrase'],
                 ),
             );
-        } catch (RuntimeException $e) {
+        } catch (RuntimeException $runtimeException) {
             Notification::make()
                 ->danger()
                 ->title('Error al procesar el certificado')
-                ->body($e->getMessage())
+                ->body($runtimeException->getMessage())
                 ->persistent()
                 ->send();
 
@@ -85,7 +88,7 @@ final class CreateCsd extends CreateRecord
         Notification::make()
             ->success()
             ->title('CSD cargado correctamente')
-            ->body("Certificado {$csd->no_certificado} registrado exitosamente.")
+            ->body(sprintf('Certificado %s registrado exitosamente.', $csd->no_certificado))
             ->send();
 
         return $csd;
