@@ -38,7 +38,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **CSD-04**: Sistema almacena archivo .key encriptado (nunca en storage público)
 - [x] **CSD-05**: Sistema extrae NoCertificado y fechas de vigencia del .cer al subir
 - [x] **CSD-06**: Sistema valida que el CSD no esté expirado antes de cada firmado
-- [ ] **CSD-07**: Sistema muestra alerta cuando el CSD está próximo a expirar (3 meses)
+- [x] **CSD-07**: Sistema muestra alerta cuando el CSD está próximo a expirar (3 meses)
 
 ### Emisor y Receptor
 
@@ -183,7 +183,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | CSD-04 | Phase 2 | Complete |
 | CSD-05 | Phase 2 | Complete |
 | CSD-06 | Phase 2 | Complete |
-| CSD-07 | Phase 2 | Pending |
+| CSD-07 | Phase 2 | Complete |
 | ENT-01 | Phase 3 | Pending |
 | ENT-02 | Phase 3 | Pending |
 | ENT-03 | Phase 3 | Pending |
