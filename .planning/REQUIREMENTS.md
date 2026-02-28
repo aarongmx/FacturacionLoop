@@ -34,8 +34,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **CSD-01**: Usuario puede subir archivo .cer desde Filament
 - [ ] **CSD-02**: Usuario puede subir archivo .key desde Filament
-- [ ] **CSD-03**: Sistema almacena contraseña del .key encriptada con Laravel Crypt
-- [ ] **CSD-04**: Sistema almacena archivo .key encriptado (nunca en storage público)
+- [x] **CSD-03**: Sistema almacena contraseña del .key encriptada con Laravel Crypt
+- [x] **CSD-04**: Sistema almacena archivo .key encriptado (nunca en storage público)
 - [ ] **CSD-05**: Sistema extrae NoCertificado y fechas de vigencia del .cer al subir
 - [ ] **CSD-06**: Sistema valida que el CSD no esté expirado antes de cada firmado
 - [ ] **CSD-07**: Sistema muestra alerta cuando el CSD está próximo a expirar (3 meses)
@@ -179,8 +179,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | CAT-12 | Phase 1 | Complete |
 | CSD-01 | Phase 2 | Pending |
 | CSD-02 | Phase 2 | Pending |
-| CSD-03 | Phase 2 | Pending |
-| CSD-04 | Phase 2 | Pending |
+| CSD-03 | Phase 2 | Complete |
+| CSD-04 | Phase 2 | Complete |
 | CSD-05 | Phase 2 | Pending |
 | CSD-06 | Phase 2 | Pending |
 | CSD-07 | Phase 2 | Pending |

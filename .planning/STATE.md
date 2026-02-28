@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 2 context gathered
-last_updated: "2026-02-28T00:05:41.066Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-02-28T00:35:26.800Z"
 progress:
   total_phases: 2
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 8
+  completed_plans: 5
 ---
 
 # Project State
@@ -19,20 +19,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-27)
 
 **Core value:** El usuario puede crear una factura CFDI 4.0 en Filament, timbrarla con Finkok, y obtener el XML timbrado con UUID válido ante el SAT.
-**Current focus:** Phase 1 — Catálogos SAT Base
+**Current focus:** Phase 2 — Gestión de CSD
 
 ## Current Position
 
-Phase: 1 of 9 (Catálogos SAT Base) — COMPLETE
-Plan: 4 of 4 in current phase complete (Plans 01, 02, 03, 04 done)
-Status: Phase 1 complete — ready for Phase 2
-Last activity: 2026-02-27 — Plan 01-04 complete: 12 feature tests, 58 tests / 111 assertions passing
+Phase: 2 of 9 (Gestión de CSD) — IN PROGRESS
+Plan: 1 of 4 in current phase complete (Plan 01 done — data layer)
+Status: Phase 2 in progress — Plans 02-02, 02-03 ready to execute in parallel
+Last activity: 2026-02-28 — Plan 02-01 complete: CSD data layer (model, enum, builder, factory, 2 DTOs) — 58 tests / 111 assertions passing
 
 ## Session Handoff
 
-**Stopped at:** Phase 2 context gathered
-**Resume with:** `/gsd:execute-phase` (next phase — Phase 2)
-**Resume file:** .planning/phases/02-gesti-n-de-csd/02-CONTEXT.md
+**Stopped at:** Completed 02-01-PLAN.md
+**Resume with:** `/gsd:execute-phase` (Phase 2 — plans 02-02 and 02-03 can run in parallel)
+**Resume file:** .planning/phases/02-gesti-n-de-csd/02-02-PLAN.md
 
 Progress: [███░░░░░░░] 12%
 
@@ -55,6 +55,7 @@ Progress: [███░░░░░░░] 12%
 
 *Updated after each plan completion*
 | Phase 01-cat-logos-sat-base P04 | 8 | 2 tasks | 22 files |
+| Phase 02-gesti-n-de-csd P01 | 3 | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,9 @@ Recent decisions affecting current work:
 - [Phase 01-04]: 10 SAT catalog models needed explicit $table declarations — Spanish pluralization not handled by Laravel's auto-pluralizer
 - [Phase 01-04]: CarbonInterface used for date cast assertions — Laravel 12 'date' cast returns CarbonImmutable, not Illuminate\Support\Carbon
 - [Phase 01-04]: TasaOCuota relationship accessed via impuesto()->first() — column name 'impuesto' conflicts with relation name, column takes precedence on property access
+- [Phase 02-01]: spatie/laravel-data requires --with-all-dependencies on PHP 8.5 due to phpdocumentor/reflection dependency chain
+- [Phase 02-01]: app/Builders/ directory established for custom Eloquent builders pattern with #[UseEloquentBuilder] attribute
+- [Phase 02-01]: app/Data/ directory established for spatie/laravel-data DTOs
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-27
-Stopped at: Completed 01-04-PLAN.md — 12 SAT catalog model feature tests (58 tests / 111 assertions) committed (6f3ddcb, 3ddc407)
-Resume file: Phase 1 complete — start Phase 2
+Last session: 2026-02-28
+Stopped at: Completed 02-01-PLAN.md — CSD data layer: model, enum, builder, factory, 2 DTOs committed (aab2544, dcc2b83)
+Resume file: Phase 2 plan 02 (.planning/phases/02-gesti-n-de-csd/02-02-PLAN.md)
