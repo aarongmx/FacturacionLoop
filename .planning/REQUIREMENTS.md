@@ -43,10 +43,10 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Emisor y Receptor
 
 - [x] **ENT-01**: Usuario puede configurar datos del emisor (RFC, nombre, régimen fiscal, domicilio fiscal)
-- [ ] **ENT-02**: Usuario puede crear y gestionar catálogo de receptores (clientes)
+- [x] **ENT-02**: Usuario puede crear y gestionar catálogo de receptores (clientes)
 - [x] **ENT-03**: Receptor almacena RFC, nombre fiscal, domicilio fiscal CP, régimen fiscal y uso CFDI predeterminado
 - [x] **ENT-04**: Sistema valida formato de RFC al registrar receptor (12 chars persona moral, 13 persona física)
-- [ ] **ENT-05**: Usuario puede buscar y seleccionar receptor existente al crear factura
+- [x] **ENT-05**: Usuario puede buscar y seleccionar receptor existente al crear factura
 
 ### Productos y Servicios
 
@@ -185,10 +185,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | CSD-06 | Phase 2 | Complete |
 | CSD-07 | Phase 2 | Complete |
 | ENT-01 | Phase 3 | Complete |
-| ENT-02 | Phase 3 | Pending |
+| ENT-02 | Phase 3 | Complete |
 | ENT-03 | Phase 3 | Complete |
 | ENT-04 | Phase 3 | Complete |
-| ENT-05 | Phase 3 | Pending |
+| ENT-05 | Phase 3 | Complete |
 | PROD-01 | Phase 3 | Complete |
 | PROD-02 | Phase 3 | Pending |
 | PROD-03 | Phase 3 | Complete |
