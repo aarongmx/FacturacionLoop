@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-02-28T00:44:13.053Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-02-28T00:54:00.585Z"
 progress:
   total_phases: 2
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 8
-  completed_plans: 7
+  completed_plans: 8
 ---
 
 # Project State
@@ -30,7 +30,7 @@ Last activity: 2026-02-28 — Plan 02-01 complete: CSD data layer (model, enum, 
 
 ## Session Handoff
 
-**Stopped at:** Completed 02-03-PLAN.md
+**Stopped at:** Completed 02-04-PLAN.md
 **Resume with:** `/gsd:execute-phase` (Phase 2 — plans 02-02 and 02-03 can run in parallel)
 **Resume file:** None
 
@@ -58,6 +58,7 @@ Progress: [███░░░░░░░] 12%
 | Phase 02-gesti-n-de-csd P01 | 3 | 2 tasks | 9 files |
 | Phase 02-gesti-n-de-csd P02 | 2 | 2 tasks | 4 files |
 | Phase 02-gesti-n-de-csd P03 | 5 | 2 tasks | 6 files |
+| Phase 02-gesti-n-de-csd P04 | 5 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,8 @@ Recent decisions affecting current work:
 - [Phase 02-gesti-n-de-csd]: Upload never auto-activates a CSD — explicit ActivateCsdAction required — business rule enforced at domain layer
 - [Phase 02-gesti-n-de-csd]: Filament 5 uses recordActions() in Table definition — row actions no longer defined on ListRecords page
 - [Phase 02-gesti-n-de-csd]: Filament 5 Widget: $view is non-static instance property; actions import from Filament\\Actions\\* not Filament\\Tables\\Actions\\*
+- [Phase 02-gesti-n-de-csd]: UploadCsdAction uses serialNumber().decimal() for no_certificado — bytes() returns raw binary unsafe for PostgreSQL UTF-8 varchar
+- [Phase 02-gesti-n-de-csd]: CSD test fixtures: self-signed cert with x500UniqueIdentifier OID + OU field enables real phpcfdi isCsd() detection in feature tests
 
 ### Pending Todos
 
