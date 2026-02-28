@@ -47,7 +47,8 @@ final class UploadCsdAction
 
         // Step 3: Extract metadata
         // Use validFromDateTime()/validToDateTime() which return DateTimeImmutable — safer than string parsing
-        $noCertificado = $certificate->serialNumber()->bytes();
+        // Use decimal() for no_certificado — SAT serial numbers are stored as decimal strings; bytes() returns raw binary
+        $noCertificado = $certificate->serialNumber()->decimal();
         $rfc = $certificate->rfc();
         $fechaInicio = Carbon::instance($certificate->validFromDateTime());
         $fechaFin = Carbon::instance($certificate->validToDateTime());
