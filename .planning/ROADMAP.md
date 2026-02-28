@@ -64,7 +64,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can create a product/service (Producto) record with ClaveProdServ, ClaveUnidad, description, unit price, and tax configuration (IVA/ISR/IEPS rates and ObjetoImp)
   4. When starting a new invoice, the user can search for and select an existing receptor from the catalog without re-entering fiscal data
   5. When adding a concept to an invoice, the user can search for and select an existing product, auto-populating all fields including tax configuration
-**Plans**: TBD
+**Plans**: 4 plans
+  - [ ] 03-01-PLAN.md — Migrations, models, factories, and ValidaRfc rule for Emisor, Receptor, Producto
+  - [ ] 03-02-PLAN.md — Filament Emisor settings page and Receptor CRUD resource with soft deletes
+  - [ ] 03-03-PLAN.md — Filament Producto CRUD resource with tax repeater and template presets
+  - [ ] 03-04-PLAN.md — Feature tests for all models, factories, and ValidaRfc rule
 
 ### Phase 4: CFDI Base y Timbrado
 **Goal**: Users can create a valid CFDI 4.0 Ingreso or Egreso in Filament, stamp it with Finkok asynchronously, and receive a timbrado XML with a valid UUID
