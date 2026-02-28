@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-02-28T06:24:10.317Z"
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-02-28T06:25:03.008Z"
 progress:
   total_phases: 3
   completed_phases: 2
   total_plans: 12
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -30,7 +30,7 @@ Last activity: 2026-02-28 — Plan 02-01 complete: CSD data layer (model, enum, 
 
 ## Session Handoff
 
-**Stopped at:** Completed 03-02-PLAN.md
+**Stopped at:** Completed 03-03-PLAN.md
 **Resume with:** `/gsd:execute-phase` (Phase 2 — plans 02-02 and 02-03 can run in parallel)
 **Resume file:** None
 
@@ -61,6 +61,7 @@ Progress: [███░░░░░░░] 12%
 | Phase 02-gesti-n-de-csd P04 | 5 | 2 tasks | 7 files |
 | Phase 03-emisor-receptores-y-productos P01 | 3 | 2 tasks | 14 files |
 | Phase 03-emisor-receptores-y-productos P02 | 4 | 2 tasks | 6 files |
+| Phase 03-emisor-receptores-y-productos P03 | 4 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,9 @@ Recent decisions affecting current work:
 - [Phase 03-emisor-receptores-y-productos]: EmisorSettings uses protected string $view (non-static) — Filament base Page declares $view as instance property
 - [Phase 03-emisor-receptores-y-productos]: EmisorSettings regimenes uses manual options()+sync() — BelongsToMany with string FK clave not auto-wireable by Filament relationship()
 - [Phase 03-emisor-receptores-y-productos]: ReceptorResource getEloquentQuery() removes SoftDeletingScope — required for TrashedFilter to show all states
+- [Phase 03-03]: ClaveProdServ and ClaveUnidad selects use getSearchResultsUsing() with 50-result limit — avoids loading 53K/2K rows as options
+- [Phase 03-03]: Tax template presets query TasaOCuota at runtime by (impuesto, factor, valor_maximo, traslado/retencion) — no hardcoded IDs
+- [Phase 03-03]: Filament Repeater uses ->relationship('impuestos') — Filament handles ProductoImpuesto create/update/delete automatically
 
 ### Pending Todos
 

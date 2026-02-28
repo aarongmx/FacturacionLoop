@@ -51,7 +51,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Productos y Servicios
 
 - [x] **PROD-01**: Usuario puede crear catálogo de productos/servicios con ClaveProdServ, ClaveUnidad, descripción y precio unitario
-- [ ] **PROD-02**: Usuario puede buscar y seleccionar producto existente al agregar concepto a factura
+- [x] **PROD-02**: Usuario puede buscar y seleccionar producto existente al agregar concepto a factura
 - [x] **PROD-03**: Producto almacena configuración de impuestos (IVA, ISR, IEPS) y ObjetoImp
 
 ### CFDI Base
@@ -190,7 +190,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | ENT-04 | Phase 3 | Complete |
 | ENT-05 | Phase 3 | Complete |
 | PROD-01 | Phase 3 | Complete |
-| PROD-02 | Phase 3 | Pending |
+| PROD-02 | Phase 3 | Complete |
 | PROD-03 | Phase 3 | Complete |
 | CFDI-01 | Phase 4 | Pending |
 | CFDI-02 | Phase 4 | Pending |
