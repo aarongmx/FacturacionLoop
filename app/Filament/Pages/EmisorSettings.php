@@ -6,6 +6,7 @@ namespace App\Filament\Pages;
 
 use App\Models\Emisor;
 use App\Models\RegimenFiscal;
+use BackedEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -26,11 +27,10 @@ final class EmisorSettings extends Page implements HasForms
     /** @var array<int, string> */
     public array $regimenes = [];
 
-    #[Override]
-    protected static string $view = 'filament.pages.emisor-settings';
+    protected string $view = 'filament.pages.emisor-settings';
 
     #[Override]
-    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-office';
 
     // Top-level nav item — NOT nested under a group (per locked decision)
 
