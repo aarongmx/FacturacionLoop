@@ -42,17 +42,17 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Emisor y Receptor
 
-- [ ] **ENT-01**: Usuario puede configurar datos del emisor (RFC, nombre, régimen fiscal, domicilio fiscal)
+- [x] **ENT-01**: Usuario puede configurar datos del emisor (RFC, nombre, régimen fiscal, domicilio fiscal)
 - [ ] **ENT-02**: Usuario puede crear y gestionar catálogo de receptores (clientes)
-- [ ] **ENT-03**: Receptor almacena RFC, nombre fiscal, domicilio fiscal CP, régimen fiscal y uso CFDI predeterminado
-- [ ] **ENT-04**: Sistema valida formato de RFC al registrar receptor (12 chars persona moral, 13 persona física)
+- [x] **ENT-03**: Receptor almacena RFC, nombre fiscal, domicilio fiscal CP, régimen fiscal y uso CFDI predeterminado
+- [x] **ENT-04**: Sistema valida formato de RFC al registrar receptor (12 chars persona moral, 13 persona física)
 - [ ] **ENT-05**: Usuario puede buscar y seleccionar receptor existente al crear factura
 
 ### Productos y Servicios
 
-- [ ] **PROD-01**: Usuario puede crear catálogo de productos/servicios con ClaveProdServ, ClaveUnidad, descripción y precio unitario
+- [x] **PROD-01**: Usuario puede crear catálogo de productos/servicios con ClaveProdServ, ClaveUnidad, descripción y precio unitario
 - [ ] **PROD-02**: Usuario puede buscar y seleccionar producto existente al agregar concepto a factura
-- [ ] **PROD-03**: Producto almacena configuración de impuestos (IVA, ISR, IEPS) y ObjetoImp
+- [x] **PROD-03**: Producto almacena configuración de impuestos (IVA, ISR, IEPS) y ObjetoImp
 
 ### CFDI Base
 
@@ -184,14 +184,14 @@ Deferred to future release. Tracked but not in current roadmap.
 | CSD-05 | Phase 2 | Complete |
 | CSD-06 | Phase 2 | Complete |
 | CSD-07 | Phase 2 | Complete |
-| ENT-01 | Phase 3 | Pending |
+| ENT-01 | Phase 3 | Complete |
 | ENT-02 | Phase 3 | Pending |
-| ENT-03 | Phase 3 | Pending |
-| ENT-04 | Phase 3 | Pending |
+| ENT-03 | Phase 3 | Complete |
+| ENT-04 | Phase 3 | Complete |
 | ENT-05 | Phase 3 | Pending |
-| PROD-01 | Phase 3 | Pending |
+| PROD-01 | Phase 3 | Complete |
 | PROD-02 | Phase 3 | Pending |
-| PROD-03 | Phase 3 | Pending |
+| PROD-03 | Phase 3 | Complete |
 | CFDI-01 | Phase 4 | Pending |
 | CFDI-02 | Phase 4 | Pending |
 | CFDI-03 | Phase 4 | Pending |
