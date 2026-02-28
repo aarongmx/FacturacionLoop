@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-02-28T00:35:26.800Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-02-28T00:40:00.200Z"
 progress:
   total_phases: 2
   completed_phases: 1
   total_plans: 8
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -30,9 +30,9 @@ Last activity: 2026-02-28 — Plan 02-01 complete: CSD data layer (model, enum, 
 
 ## Session Handoff
 
-**Stopped at:** Completed 02-01-PLAN.md
+**Stopped at:** Completed 02-02-PLAN.md
 **Resume with:** `/gsd:execute-phase` (Phase 2 — plans 02-02 and 02-03 can run in parallel)
-**Resume file:** .planning/phases/02-gesti-n-de-csd/02-02-PLAN.md
+**Resume file:** None
 
 Progress: [███░░░░░░░] 12%
 
@@ -56,6 +56,7 @@ Progress: [███░░░░░░░] 12%
 *Updated after each plan completion*
 | Phase 01-cat-logos-sat-base P04 | 8 | 2 tasks | 22 files |
 | Phase 02-gesti-n-de-csd P01 | 3 | 2 tasks | 9 files |
+| Phase 02-gesti-n-de-csd P02 | 2 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,9 @@ Recent decisions affecting current work:
 - [Phase 02-01]: spatie/laravel-data requires --with-all-dependencies on PHP 8.5 due to phpdocumentor/reflection dependency chain
 - [Phase 02-01]: app/Builders/ directory established for custom Eloquent builders pattern with #[UseEloquentBuilder] attribute
 - [Phase 02-01]: app/Data/ directory established for spatie/laravel-data DTOs
+- [Phase 02-gesti-n-de-csd]: UploadCsdAction uses dual-layer encryption for .key material: Crypt::encryptString for file bytes + 'encrypted' Eloquent cast for passphrase
+- [Phase 02-gesti-n-de-csd]: .cer stored unencrypted in local disk — Phase 4 XML signing requires raw .cer bytes on every invoice
+- [Phase 02-gesti-n-de-csd]: Upload never auto-activates a CSD — explicit ActivateCsdAction required — business rule enforced at domain layer
 
 ### Pending Todos
 
