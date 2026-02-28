@@ -48,7 +48,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The .key file and its passphrase are never stored in plaintext — the database contains only encrypted ciphertext and the file lives in private storage
   3. A badge in Filament shows a warning when the CSD expiry date is within 90 days of today
   4. Any attempt to stamp a CFDI with an expired CSD produces a clear user-facing error before contacting the PAC
-**Plans**: TBD
+**Plans**: 4 plans
+  - [ ] 02-01-PLAN.md — Install dependencies (phpcfdi/credentials, spatie/laravel-data), migration, Csd model, CsdStatus enum, CsdBuilder, factory, DTOs
+  - [ ] 02-02-PLAN.md — Action classes: UploadCsdAction, ActivateCsdAction, DeactivateCsdAction, ValidateCsdExpiryAction
+  - [ ] 02-03-PLAN.md — Filament CsdResource (list, create/upload, view pages) and CsdExpiryWarningWidget
+  - [ ] 02-04-PLAN.md — Feature tests for Csd model, builder, and all actions
 
 ### Phase 3: Emisor, Receptores y Productos
 **Goal**: Users can configure the issuer's fiscal data and maintain a catalog of customers and products/services used when building CFDI forms
@@ -143,7 +147,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Catálogos SAT Base | 4/4 | Complete   | 2026-02-27 |
-| 2. Gestión de CSD | 0/TBD | Not started | - |
+| 2. Gestión de CSD | 0/4 | Not started | - |
 | 3. Emisor, Receptores y Productos | 0/TBD | Not started | - |
 | 4. CFDI Base y Timbrado | 0/TBD | Not started | - |
 | 5. Post-Timbrado y Consulta | 0/TBD | Not started | - |
